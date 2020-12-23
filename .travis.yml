@@ -1,3 +1,6 @@
+arch:
+  - amd64
+  - ppc64le
 language: python
 
 python:
@@ -7,7 +10,11 @@ python:
   - "3.6"
   - "3.7"
   - "pypy"
-
+jobs:
+ exclude:
+  - python: "pypy"
+    arch: ppc64le
+    
 script: nosetests -vv --with-coverage --cover-package=xmltodict
 
 jobs:
